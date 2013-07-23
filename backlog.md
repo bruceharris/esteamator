@@ -28,13 +28,30 @@
     Given I have joined a valid session
     When I enter the session
     I should see the Item Estimate screen for the item currently being estimated in the session
+    And my name should appear on the same screen of all participants
 
-## The Item Estimate screen - user name
+## The Item Estimate screen - participant names
 
     Given a valid session
     When I view the Item Estimate screen
-    My name should be displayed on top
-    And I should have the ability to leave the session or edit my name
+    The screen should display a list of the names of the session participants
+    And my name should be displayed on top
+
+## The Item Estimate screen - exit session
+
+    Given a valid session
+    When I view the Item Estimate screen
+    A link to exist the session should appear next to my name
+    And following that link should remove me from the session
+    And update the screens of all participants to indicate I have left
+    And navigate to an exit screen that provides a link for me to re-enter the session
+
+## The Item Estimate screen - editing my name
+
+    Given a valid session
+    When I view the Item Estimate screen
+    I should have the ability to edit my name
+    And doing so should update my name as displayed on the screens of all participants
 
 ## The Item Estimate screen - entering a description
 
