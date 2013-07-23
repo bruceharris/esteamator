@@ -1,5 +1,5 @@
-* [User Stories]()
-* [Infrastructure Stories]()
+* [User Stories](#user-stories)
+* [Infrastructure Stories](#infrastructure-stories)
 
 # User stories
 
