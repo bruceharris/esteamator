@@ -30,12 +30,26 @@
     I should see the Item Estimate screen for the item currently being estimated in the session
     And my name should appear on the same screen of all participants
 
+## The Item Estimate screen - item number
+
+    Given a valid session
+    The system should keep track of the sequence of items being estimated
+    And when I view the Item Estimate screen
+    The screen should display the sequence number of the item currently being estimated
+
 ## The Item Estimate screen - participant names
 
     Given a valid session
     When I view the Item Estimate screen
     The screen should display a list of the names of the session participants
     And my name should be displayed on top
+
+## The Item Estimate screen - estimate entry
+
+    Given a valid session
+    When I view the Item Estimate screen
+    An input box and submit button should appear next to my name
+    So that I can submit an estimate for an item
 
 ## The Item Estimate screen - exit session
 
@@ -59,6 +73,7 @@
     When I view the Item Estimate screen
     There should be a section displaying the description of the item being estimated
     And it should have an edit link that allows me to enter/edit/save the description
+    And editing/saving should update the description as displayed on the screens of all participants
 
 ## Remembering name upon joining a session for the first time
 
@@ -77,6 +92,17 @@
     My browser should remember that my name is associated with this session
     And I should enter the estimation session without being prompted for my name
 
+## The Item Estimate screen - removing a participant
+
+    Given a valid session
+    When I view the Item Estimate screen
+    A link to remove a participant from the session should appear next to each participants name
+    And if all other participants choose to remove that participant from the session
+    That participant should be removed from the session
+    And the screens of all participants should be updated accordingly
+    And further input from the removed participant should not be honored
+    (details of behavior for the removed participant TBD)
+
 # Infrastructure stories
 
 ## Application structure
@@ -94,6 +120,8 @@
   * General node server framework
     * express?
     * hapi?
+  * Asset management (js/css minification etc)
+    * ?
 * Both server and client side...
   * Testing JavaScript 
     * Jasmine or Mocha? Others?
