@@ -41,7 +41,7 @@
 
     Given a valid session
     When I view the Item Estimate screen
-    A link to exist the session should appear next to my name
+    A link to exit the session should appear next to my name
     And following that link should remove me from the session
     And update the screens of all participants to indicate I have left
     And navigate to an exit screen that provides a link for me to re-enter the session
