@@ -1,0 +1,15 @@
+<head>
+  <title>Esteamator</title>
+</head>
+
+<body>
+  {{> index }}
+</body>
+
+<template name="index">
+  {{#if noSession}}
+    {{> newSession}}
+  {{else}}
+    <div>Session ID: {{sessionId}}</div>
+  {{/if}}
+</template>
