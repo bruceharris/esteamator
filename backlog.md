@@ -8,10 +8,16 @@
 ## Creating a session
 
     As a user
-	I'd like to be able to create a new estimation session
-	And get a URL containing the new session ID
-	So I can share the URL with my teammates
-	So they (and I) can join the estimation session
+    I'd like to be able to create a new estimation session
+    And get a URL containing the new session ID
+    So I can share the URL with my teammates
+    So they (and I) can join the estimation session
+
+## Session termination
+
+    As a user
+    I'd like estimation sessions to terminate after 1 hour of inactivity
+    So that the server does not run out of memory
 
 ## Joining a session for the first time
 
@@ -120,8 +126,10 @@
   * General node server framework
     * express?
     * hapi?
+    * meteor?
   * Asset management (js/css minification etc)
     * ?
+  * templating engine ?
 * Both server and client side...
   * Testing JavaScript 
     * Jasmine or Mocha? Others?
@@ -140,6 +148,7 @@
     * Backbone (Angular/Ember likely heavier than necessary for this app)
   * CSS management
     * SASS, LESS, or Stylus? Others?
+  * Front-end layout etc framework e.g. twitter bootstrap?
 
 ## CI and Deployment
 
@@ -149,4 +158,4 @@
 * Continous Integration
   * Travis CI?
 * Deployment
-  * Joyent cloud or Nodejitsu? Others?
+  * Joyent cloud, Nodejitsu, or Heroku? Others?
