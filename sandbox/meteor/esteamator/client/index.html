@@ -3,6 +3,7 @@
 </head>
 
 <body>
+  <div><a href="/">home</a></div>
   {{> index }}
 </body>
 
@@ -10,6 +11,6 @@
   {{#if noSession}}
     {{> newSession}}
   {{else}}
-    <div>Session ID: {{sessionId}}</div>
+    {{> existingSession}}
   {{/if}}
 </template>
