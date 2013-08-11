@@ -1,6 +1,23 @@
 <template name="estimate">
-  <h2>Estimate away {{username}}!
+  <h2>{{username}}
   <div>Current work item: {{currentWorkItem}}
   <div>Current work item id: {{currentWorkItem._id}}
   <div>Current work index: {{currentWorkItem.index}}
+  <ul>
+  	{{#each usersInSession}}
+  	  {{> userEstimate}}
+  	{{/each}}
+  </ul>
+  <button type="button">next item</button>
+</template>
+
+<template name="userEstimate">
+  <li>
+    <span class="username">
+      {{name}}
+    </span>
+    <span class="estimate">
+      {{estimate}}
+    </span>
+  </li>
 </template>

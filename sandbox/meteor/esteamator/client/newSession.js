@@ -1,4 +1,4 @@
-Template.newSession.events({ 'click input': createNewSession });
+Template.newSession.events({ 'click button': createNewSession });
 
 function createNewSession(){
   console.log('wi', WorkItems);
