@@ -2,12 +2,12 @@ Template.inputUsername.events({ 'click button': registerUsername });
 
 function registerUsername(event, template){
   var username = $(template.find('input')).val();
-  Session.set('username', username);
-  var sessionId = Session.get('sessionId');
-  console.log("sessionId ", sessionId);
-  var userId = Users.insert({
-  	sessionId: sessionId,
+  var user = {
+  	sessionId: Session.get('sessionId'),
   	name: username
-  });
-  console.log("userId ", userId);
+  };
+  var userId = Users.insert(user);
+  user = _(user).extend({ _id: userId });
+  Session.set('user', user);
+  console.log('user', user);
 }

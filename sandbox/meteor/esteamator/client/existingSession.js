@@ -1,3 +1,3 @@
-Template.existingSession.noUsername = function () {
-  return Session.equals('username', null);
+Template.existingSession.noUser = function () {
+  return Session.equals('user', null);
 };

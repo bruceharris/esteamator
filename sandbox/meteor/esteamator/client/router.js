@@ -6,7 +6,6 @@ EsteamatorRouter = Backbone.Router.extend({
 
   main: function (sessionId) {
     Session.set("sessionId", sessionId);
-
   },
 
   setSession: function (sessionId) {

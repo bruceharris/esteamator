@@ -1,12 +1,10 @@
-// TODO: why can't I redefine this in common/Collections.js?
-Sessions = new Meteor.Collection("sessions");
-
 // TODO: subscribe only to the ones we care about
 Meteor.subscribe('workItems');
 Meteor.subscribe('users');
+Meteor.subscribe('estimates');
 
 Session.setDefault("sessionId", null);
-Session.setDefault("username", null);
+Session.setDefault("user", null);
 Session.setDefault("currentWorkItem", null);
 
 
