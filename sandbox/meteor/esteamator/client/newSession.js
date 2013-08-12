@@ -7,7 +7,7 @@ function createNewSession(){
   Router.setSession(sessionId);
   var itemId = WorkItems.insert({
   	sessionId: sessionId,
-  	index: 0
+  	index: 1
   });
   Session.set('currentWorkItemId', itemId);
 }

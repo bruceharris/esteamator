@@ -1,15 +1,12 @@
 <template name="estimate">
-  <h2>{{user.name}}
-  <div>Current work item: {{currentWorkItem}}
-  <div>Current work item id: {{currentWorkItem._id}}
-  <div>Current work index: {{currentWorkItem.index}}
+  <h2>Item #{{currentWorkItem.index}}
   <ul>
   	{{#each usersInSession}}
   	  {{> userEstimate}}
   	{{/each}}
   </ul>
   {{#if allEstimatesSubmitted}}
-    <button type="button">next item</button>
+    <button type="button" id="nextItem">next item</button>
   {{/if}}
 </template>
 
@@ -24,7 +21,6 @@
           {{estimateValue}}
         {{else}}
           <input type="text" size="2"/>
-          <button type="button">Submit</button>
         {{/if}}
       {{else}}
         {{#if allEstimatesSubmitted}}

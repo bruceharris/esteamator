@@ -1,13 +1,11 @@
-Template.inputUsername.events({ 'click button': registerUsername });
+Template.inputUsername.events({ 'change input': registerUsername });
 
 function registerUsername(event, template){
-  var username = $(template.find('input')).val();
   var user = {
   	sessionId: Session.get('sessionId'),
-  	name: username
+  	name: $(template.find('input')).val()
   };
   var userId = Users.insert(user);
   user = _(user).extend({ _id: userId });
   Session.set('user', user);
-  console.log('user', user);
 }

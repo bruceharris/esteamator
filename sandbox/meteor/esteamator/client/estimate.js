@@ -6,8 +6,7 @@ function estimatesForCurrentWorkItem(additionalCriteria) {
     sessionId: sessionId(),
     workItemId: currentWorkItem()._id
   };
-  var result = Estimates.find(_(query).extend(additionalCriteria)).fetch();
-  return result;
+  return Estimates.find(_(query).extend(additionalCriteria)).fetch();
 }
 
 function estimateForCurrentWorkItemForUser(userId) {
@@ -25,7 +24,6 @@ function currentWorkItem() {
     { sort: { index: -1 }}
   );
 
-  console.log('result', result);
   Session.set('currentWorkItemId', result._id);
   return result;
 }
@@ -39,7 +37,6 @@ function currentUser() {
 };
 
 function allEstimatesSubmitted() {
-  console.log('#', estimatesForCurrentWorkItem().length);
   return estimatesForCurrentWorkItem().length === usersInSession().length;
 }
 
@@ -58,16 +55,13 @@ Template.estimate.allEstimatesSubmitted = allEstimatesSubmitted;
 // Template.userEstimate
 
 Template.userEstimate.events = {
-  'click .estimateValue button': function() {
-    var x = {
+  'change .estimateValue input': function() {
+    Estimates.insert({
       sessionId: sessionId(),
       userId: currentUser()._id,
       workItemId: currentWorkItem()._id,
       value: $('.estimateValue input').val()
-    };
-    console.log('---------x', x)
-    var id = Estimates.insert(x);
-    console.log('click', id, $('.estimateValue input').val());
+    });
   }
 };
 
@@ -80,8 +74,7 @@ Template.userEstimate.userSubmittedEstimate = function() {
 };
 
 Template.userEstimate.estimateValue = function() {
-  console.log('ue', estimateForCurrentWorkItemForUser(currentUser()._id));
-  return estimateForCurrentWorkItemForUser(currentUser()._id);
+  return estimateForCurrentWorkItemForUser(this._id);
 };
 
 Template.userEstimate.allEstimatesSubmitted = allEstimatesSubmitted;
