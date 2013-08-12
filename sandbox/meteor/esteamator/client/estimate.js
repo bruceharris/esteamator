@@ -43,6 +43,17 @@ function allEstimatesSubmitted() {
 /////////////////////
 // Template.estimate
 
+Template.estimate.events = {
+  'click #nextItem': function(event, template) {
+    var nextIndex = currentWorkItem().index + 1;
+    var itemId = WorkItems.insert({
+      sessionId: sessionId(),
+      index: nextIndex
+    });
+    Session.set('currentWorkItemId', itemId);
+  }
+};
+
 Template.estimate.user = currentUser;
 
 Template.estimate.currentWorkItem = currentWorkItem;
@@ -55,7 +66,7 @@ Template.estimate.allEstimatesSubmitted = allEstimatesSubmitted;
 // Template.userEstimate
 
 Template.userEstimate.events = {
-  'change .estimateValue input': function() {
+  'change .estimateValue input': function(event, template) {
     Estimates.insert({
       sessionId: sessionId(),
       userId: currentUser()._id,

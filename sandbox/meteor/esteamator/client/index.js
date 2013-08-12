@@ -5,7 +5,7 @@ Meteor.subscribe('estimates');
 
 Session.setDefault("sessionId", null);
 Session.setDefault("user", null);
-Session.setDefault("currentWorkItem", null);
+Session.setDefault("currentWorkItemId", null);
 
 
 Template.index.noSession = function () {
