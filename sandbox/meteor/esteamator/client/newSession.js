@@ -1,13 +1,17 @@
-Template.newSession.events({ 'click button': createNewSession });
+define('newSession', ['router'], function(router){
 
-function createNewSession(){
-  var sessionId = Sessions.insert({});
-  Session.set("sessionId", sessionId);
-  console.log("created session " + sessionId);
-  Router.setSession(sessionId);
-  var itemId = WorkItems.insert({
-  	sessionId: sessionId,
-  	index: 1
-  });
-  Session.set('currentWorkItemId', itemId);
-}
+  Template.newSession.events({ 'click button': createNewSession });
+
+  function createNewSession(){
+    var sessionId = Sessions.insert({});
+    Session.set("sessionId", sessionId);
+    console.log("created session " + sessionId);
+    router.setSession(sessionId);
+    var itemId = WorkItems.insert({
+  	  sessionId: sessionId,
+  	  index: 1
+    });
+    Session.set('currentWorkItemId', itemId);
+  }
+
+});

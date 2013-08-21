@@ -1,21 +1,27 @@
-EsteamatorRouter = Backbone.Router.extend({
+define('router', [], function() {
 
-  routes: {
-    "session/:sessionId": "main"
-  },
+  var EsteamatorRouter = Backbone.Router.extend({
 
-  main: function (sessionId) {
-    Session.set("sessionId", sessionId);
-  },
+    routes: {
+      "session/:sessionId": "main"
+    },
 
-  setSession: function (sessionId) {
-    this.navigate("session/" + sessionId, true);
-  }
+    main: function (sessionId) {
+      Session.set("sessionId", sessionId);
+    },
 
-});
+    setSession: function (sessionId) {
+      this.navigate("session/" + sessionId, true);
+    }
 
-Router = new EsteamatorRouter;
+  });
 
-Meteor.startup(function () {
-  Backbone.history.start({pushState: true});
+  var router = new EsteamatorRouter;
+
+  Meteor.startup(function () {
+    Backbone.history.start({pushState: true});
+  });
+
+  return router;
+
 });
