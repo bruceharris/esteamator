@@ -5,7 +5,7 @@ define('collections', [], function() {
     // sessions { _id: 'mongo generated unique id' }
     sessions:  new Meteor.Collection("sessions"),
 
-    // Users {
+    // users {
     //   _id: 'mongo generated unique id',
     // 	sessionId: 'session._id',
     // 	name: 'user name'
