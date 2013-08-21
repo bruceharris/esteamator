@@ -1,91 +1,97 @@
-///////////////////
-// helper functions
+define('estimate', ['collections'], function(collections) {
 
-function estimatesForCurrentWorkItem(additionalCriteria) {
-  var query = {
-    sessionId: sessionId(),
-    workItemId: currentWorkItem()._id
+  ///////////////////
+  // helper functions
+
+  function estimatesForCurrentWorkItem(additionalCriteria) {
+    var query = {
+      sessionId: sessionId(),
+      workItemId: currentWorkItem()._id
+    };
+    return collections.estimates.find(_(query).extend(additionalCriteria)).fetch();
+  }
+
+  function estimateForCurrentWorkItemForUser(userId) {
+    var estimateForUser = estimatesForCurrentWorkItem({ userId: userId });
+    return (estimateForUser.length === 0 ? null : estimateForUser[0].value);
+  }
+
+  function sessionId() {
+    return Session.get('sessionId');
+  }
+
+  function currentWorkItem() {
+    var result = collections.workItems.findOne(
+      { sessionId: sessionId() },
+      { sort: { index: -1 }}
+    );
+
+    Session.set('currentWorkItemId', result._id);
+    return result;
+  }
+
+  function usersInSession() {
+    return collections.users.find({ sessionId: sessionId() }).fetch();
+  }
+
+  function currentUser() {
+    return Session.get('user');
   };
-  return Estimates.find(_(query).extend(additionalCriteria)).fetch();
-}
 
-function estimateForCurrentWorkItemForUser(userId) {
-  var estimateForUser = estimatesForCurrentWorkItem({ userId: userId });
-  return (estimateForUser.length === 0 ? null : estimateForUser[0].value);
-}
-
-function sessionId() {
-  return Session.get('sessionId');
-}
-
-function currentWorkItem() {
-  var result = WorkItems.findOne(
-    { sessionId: sessionId() },
-    { sort: { index: -1 }}
-  );
-
-  Session.set('currentWorkItemId', result._id);
-  return result;
-}
-
-function usersInSession() {
-  return Users.find({ sessionId: sessionId() }).fetch();
-}
-
-function currentUser() {
-  return Session.get('user');
-};
-
-function allEstimatesSubmitted() {
-  return estimatesForCurrentWorkItem().length === usersInSession().length;
-}
-
-/////////////////////
-// Template.estimate
-
-Template.estimate.events = {
-  'click #nextItem': function(event, template) {
-    var nextIndex = currentWorkItem().index + 1;
-    var itemId = WorkItems.insert({
-      sessionId: sessionId(),
-      index: nextIndex
-    });
-    Session.set('currentWorkItemId', itemId);
+  function allEstimatesSubmitted() {
+    return estimatesForCurrentWorkItem().length === usersInSession().length;
   }
-};
 
-Template.estimate.user = currentUser;
+  /////////////////////
+  // Template.estimate
 
-Template.estimate.currentWorkItem = currentWorkItem;
+  Template.estimate.events = {
+    'click #nextItem': function(event, template) {
+      var nextIndex = currentWorkItem().index + 1;
+      var itemId = collections.workItems.insert({
+        sessionId: sessionId(),
+        index: nextIndex
+      });
+      Session.set('currentWorkItemId', itemId);
+    }
+  };
 
-Template.estimate.usersInSession = usersInSession;
+  Template.estimate.user = currentUser;
 
-Template.estimate.allEstimatesSubmitted = allEstimatesSubmitted;
+  Template.estimate.currentWorkItem = currentWorkItem;
 
-////////////////////////
-// Template.userEstimate
+  Template.estimate.usersInSession = usersInSession;
 
-Template.userEstimate.events = {
-  'change .estimateValue input': function(event, template) {
-    Estimates.insert({
-      sessionId: sessionId(),
-      userId: currentUser()._id,
-      workItemId: currentWorkItem()._id,
-      value: $('.estimateValue input').val()
-    });
-  }
-};
+  Template.estimate.allEstimatesSubmitted = allEstimatesSubmitted;
 
-Template.userEstimate.userIsMe = function() {
-  return this.name === currentUser().name;
-};
+  ////////////////////////
+  // Template.userEstimate
 
-Template.userEstimate.userSubmittedEstimate = function() {
-  return estimateForCurrentWorkItemForUser(this._id) !== null;
-};
+  Template.userEstimate.events = {
+    'change .estimateValue input': function(event, template) {
+      collections.estimates.insert({
+        sessionId: sessionId(),
+        userId: currentUser()._id,
+        workItemId: currentWorkItem()._id,
+        value: $('.estimateValue input').val()
+      });
+    }
+  };
 
-Template.userEstimate.estimateValue = function() {
-  return estimateForCurrentWorkItemForUser(this._id);
-};
+  Template.userEstimate.userIsMe = function() {
+    return this.name === currentUser().name;
+  };
 
-Template.userEstimate.allEstimatesSubmitted = allEstimatesSubmitted;
+  Template.userEstimate.userSubmittedEstimate = function() {
+    return estimateForCurrentWorkItemForUser(this._id) !== null;
+  };
+
+  Template.userEstimate.estimateValue = function() {
+    return estimateForCurrentWorkItemForUser(this._id);
+  };
+
+  Template.userEstimate.allEstimatesSubmitted = allEstimatesSubmitted;
+
+  return null;
+
+});
