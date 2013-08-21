@@ -26,6 +26,8 @@ define('estimate', ['collections'], function(collections) {
       { sort: { index: -1 }}
     );
 
+    // TODO error handling here
+ 
     Session.set('currentWorkItemId', result._id);
     return result;
   }
