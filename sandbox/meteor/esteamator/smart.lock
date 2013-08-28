@@ -2,13 +2,16 @@
   "meteor": {},
   "dependencies": {
     "basePackages": {
-      "require": {}
+      "require": {
+        "git": "https://github.com/tomconnors/meteor-require.git",
+        "branch": "master"
+      }
     },
     "packages": {
       "require": {
         "git": "https://github.com/tomconnors/meteor-require.git",
-        "tag": "v0.0.1",
-        "commit": "1662154598db51d1291fbfcefcd7152e7255bcf6"
+        "branch": "master",
+        "commit": "b9c5a87e9f92019cca882234086b7d32719f67e2"
       }
     }
   }
