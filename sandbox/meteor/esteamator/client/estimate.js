@@ -1,5 +1,4 @@
 define('estimate', ['collections', 'estimateHelpers'], function(collections, helpers) {
-  console.log('h', helpers);
 
   /////////////////////
   // Template.estimate
