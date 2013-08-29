@@ -1,7 +1,7 @@
 {
   "packages": {
     "require": {
-      "git": "https://github.com/tomconnors/meteor-require.git"
+      "git": "https://github.com/bruceharris/meteor-require.git"
     }
   }
 }

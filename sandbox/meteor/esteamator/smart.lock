@@ -3,15 +3,15 @@
   "dependencies": {
     "basePackages": {
       "require": {
-        "git": "https://github.com/tomconnors/meteor-require.git",
+        "git": "https://github.com/bruceharris/meteor-require.git",
         "branch": "master"
       }
     },
     "packages": {
       "require": {
-        "git": "https://github.com/tomconnors/meteor-require.git",
+        "git": "https://github.com/bruceharris/meteor-require.git",
         "branch": "master",
-        "commit": "b9c5a87e9f92019cca882234086b7d32719f67e2"
+        "commit": "c60959a5c13ba94adadaeb8b1c551ba21a6c334e"
       }
     }
   }
