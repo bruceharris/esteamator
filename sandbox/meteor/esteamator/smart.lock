@@ -11,7 +11,7 @@
       "require": {
         "git": "https://github.com/bruceharris/meteor-require.git",
         "branch": "master",
-        "commit": "c60959a5c13ba94adadaeb8b1c551ba21a6c334e"
+        "commit": "3250fef0bb076a49776cf8802aec80aeb6a67a7f"
       }
     }
   }
