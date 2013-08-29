@@ -45,10 +45,11 @@ define('estimateHelpers', ['collections'], function(collections) {
 
   };
 
-  // bind all to self
-  _(helpers).keys().forEach(function(methodName) {
+  var bindAllToSelf = function(methodName) {
     helpers[methodName] = _.bind(helpers[methodName], helpers);
-  });
+  };
+
+  _(helpers).keys().forEach(bindAllToSelf);
 
   return helpers;
 
