@@ -14,13 +14,7 @@ define('estimate', ['collections', 'estimateHelpers'], function(collections, hel
     }
   };
 
-  Template.estimate.user = helpers.currentUser;
-
-  Template.estimate.currentWorkItem = helpers.currentWorkItem;
-
-  Template.estimate.usersInSession = helpers.usersInSession;
-
-  Template.estimate.allEstimatesSubmitted = helpers.allEstimatesSubmitted;
+  Template.estimate.helpers(helpers);
 
   ////////////////////////
   // Template.userEstimate
