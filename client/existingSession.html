@@ -1,5 +1,7 @@
 <template name="existingSession">
-  {{> shareSession}}
+  {{#if shouldShowFullShareLink}}
+    {{> shareSession}}
+  {{/if}}
   <div>
     {{#if noUser}}
       {{> inputUsername }}
