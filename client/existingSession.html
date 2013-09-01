@@ -1,8 +1,5 @@
 <template name="existingSession">
-  <div>
-    <a href="{{mailHref}}">Email</a> session to team
-    or copy and send URL<input disabled value="{{url}}"/>
-  </div>
+  {{> shareSession}}
   <div>
     {{#if noUser}}
       {{> inputUsername }}
