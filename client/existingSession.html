@@ -1,7 +1,13 @@
 <template name="existingSession">
-  {{#if noUser}}
-    {{> inputUsername }}
-  {{else}}
-    {{> estimate }}
-  {{/if}}
+  <div>
+    <a href="{{mailHref}}">Email</a> session to team
+    or copy and send URL<input disabled value="{{url}}"/>
+  </div>
+  <div>
+    {{#if noUser}}
+      {{> inputUsername }}
+    {{else}}
+      {{> estimate }}
+    {{/if}}
+  </div>
 </template>
