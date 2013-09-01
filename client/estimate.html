@@ -1,5 +1,11 @@
-<template name="estimate">
-  <h2>Item #{{currentWorkItem.index}}
+<template name="estimate" class="estimate">
+  <h2>#{{currentWorkItem.index}}
+    {{#if currentWorkItem.description}}
+      {{currentWorkItem.description}}
+    {{else}}
+      <input class="description"  placeholder="optional description"/>
+    {{/if}}
+  </h2>
   <ul>
   	{{#each usersInSession}}
   	  {{> userEstimate}}

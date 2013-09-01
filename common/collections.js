@@ -15,7 +15,8 @@ define('collections', [], function() {
     // workItems {
     //   _id: 'mongo generated unique id',
     //   sessionId: 'session._id',
-    //  index: '1 based index of work items in this session'
+    //   index: '1 based index of work items in this session',
+    //   description: 'brief summary of user story'
     // }
     workItems: new Meteor.Collection("workItems"),
 

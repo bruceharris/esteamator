@@ -22,14 +22,6 @@
     I should have the ability to edit my name
     And doing so should update my name as displayed on the screens of all participants
 
-## The Item Estimate screen - entering a description
-
-    Given a valid session
-    When I view the Item Estimate screen
-    There should be a section displaying the description of the item being estimated
-    And it should have an edit link that allows me to enter/edit/save the description
-    And editing/saving should update the description as displayed on the screens of all participants
-
 ## The Item Estimate screen - removing a participant
 
     Given a valid session
@@ -106,5 +98,13 @@
     When I browse to the session URL for a session that I've already joined
     My browser should remember that my name is associated with this session
     And I should enter the estimation session without being prompted for my name
+
+## The Item Estimate screen - entering a description
+
+    Given a valid session
+    When I view the Item Estimate screen
+    There should be a section displaying the description of the item being estimated
+    And it should have an edit link that allows me to enter/edit/save the description
+    And editing/saving should update the description as displayed on the screens of all participants
 
 -->
