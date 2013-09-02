@@ -1,4 +1,5 @@
 define('router', [], function() {
+  'use strict';
 
   var EsteamatorRouter = Backbone.Router.extend({
 

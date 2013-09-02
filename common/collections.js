@@ -1,4 +1,5 @@
 define('collections', [], function() {
+  'use strict';
 
   return {
 

@@ -1,4 +1,5 @@
 define('bootstrap', ['collections'], function(collections) {
+  'use strict';
 
   Deps.autorun(setUserToSessionIfStoredLocally);
 

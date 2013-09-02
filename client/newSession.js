@@ -1,4 +1,5 @@
 define('newSession', ['router', 'collections'], function(router, collections){
+  'use strict';
 
   Template.newSession.events({ 'click button': createNewSession });
 

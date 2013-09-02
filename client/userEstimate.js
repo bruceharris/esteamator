@@ -1,4 +1,5 @@
 define('userEstimate', ['collections', 'estimateHelpers'], function(collections, helpers) {
+  'use strict';
 
   Template.userEstimate.events = {
     'change .estimateValue input': function(event, template) {

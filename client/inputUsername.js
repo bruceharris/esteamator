@@ -1,4 +1,5 @@
 define('inputUsername', ['collections'], function(collections) {
+  'use strict';
 
   Template.inputUsername.events({ 'change input': registerUsername });
 
