@@ -1,11 +1,5 @@
 # User stories
 
-## Session termination
-
-    As a user
-    I'd like estimation sessions to terminate after 1 hour of inactivity
-    So that the server does not run out of memory
-
 ## The Item Estimate screen - exit session
 
     Given a valid session
