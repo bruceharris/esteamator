@@ -10,10 +10,19 @@ Session.setDefault("user", null);
 Session.setDefault("currentWorkItemId", null);
 
 
-Template.index.noSession = function () {
-  return Session.equals('sessionId', null);
-};
+Template.index.helpers({
 
-Template.index.sessionId = function () {
-  return Session.get('sessionId');
-};
+  noSession: function() {
+    return Session.equals('sessionId', null);
+  },
+
+  onExistingSessionPage: function() {
+    return Session.equals('page', 'existingSession');
+  },
+
+  onReportPage: function() {
+    return Session.equals('page', 'report');
+  },
+
+});
+

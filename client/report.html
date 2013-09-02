@@ -1,0 +1,20 @@
+<template name="report">
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Description</th>
+      {{#each usersInSession}}
+        <th>{{name}}</th>
+      {{/each}}
+    </tr>
+    {{#each estimatesByWorkItemByUser}}
+      <tr>
+        <td>{{ workItem.index }}</td>
+        <td>{{ workItem.description }}</td>
+        {{#each estimatesByUser}}
+          <td>{{this}}</td>
+        {{/each}}
+      </tr>
+    {{/each}}
+  </table>
+</template>  

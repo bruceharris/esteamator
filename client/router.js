@@ -4,12 +4,25 @@ define('router', [], function() {
   var EsteamatorRouter = Backbone.Router.extend({
 
     routes: {
-      'session/:sessionId': 'main'
+      'session/:sessionId': 'existingSession',
+      'session/:sessionId/report': 'report'
     },
 
-    main: function (sessionId) {
+    ///////////////////
+    // route handlers
+
+    existingSession: function (sessionId) {
+      Session.set('page', 'existingSession');
       Session.set('sessionId', sessionId);
     },
+
+    report: function(sessionId) {
+      Session.set('page', 'report');
+      Session.set('sessionId', sessionId);
+    },
+
+    /////////////////////
+    // navigation methods
 
     setSession: function (sessionId) {
       this.navigate('session/' + sessionId, true);

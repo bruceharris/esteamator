@@ -1,13 +1,20 @@
 define('estimateHelpers', ['collections'], function(collections) {
   'use strict';
 
+  // TODO change to constructor? rename?
+  function newSessionQuery(selector) {
+    var query = {
+      sessionId: Session.get('sessionId')
+    };
+    return _(query).extend(selector);
+  }
+
   var helpers = {
 
+    newSessionQuery: newSessionQuery,
+
     estimatesForCurrentWorkItem: function(additionalCriteria) {
-      var query = {
-        sessionId: this.sessionId(),
-        workItemId: this.currentWorkItem()._id
-      };
+      var query = newSessionQuery({ workItemId: this.currentWorkItem()._id });
       return collections.estimates.find(_(query).extend(additionalCriteria)).fetch();
     },
 
@@ -20,9 +27,16 @@ define('estimateHelpers', ['collections'], function(collections) {
       return Session.get('sessionId');
     },
 
+    workItemsInSession: function() {
+      return collections.workItems.find(
+        newSessionQuery(),
+        { sort: { index: 1 }}
+      ).fetch();
+    },
+
     currentWorkItem: function() {
       var result = collections.workItems.findOne(
-        { sessionId: this.sessionId() },
+        newSessionQuery(),
         { sort: { index: -1 }}
       );
 
@@ -33,7 +47,10 @@ define('estimateHelpers', ['collections'], function(collections) {
     },
 
     usersInSession: function() {
-      return collections.users.find({ sessionId: this.sessionId() }).fetch();
+      return collections.users.find(
+        newSessionQuery(),
+        { sort: { name: 1 }}
+      ).fetch();
     },
 
     currentUser: function() {

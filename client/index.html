@@ -10,7 +10,11 @@
 <template name="index">
   {{#if noSession}}
     {{> newSession}}
-  {{else}}
+  {{/if}}
+  {{#if onExistingSessionPage}}
     {{> existingSession}}
+  {{/if}}
+  {{#if onReportPage}}
+    {{> report}}
   {{/if}}
 </template>
