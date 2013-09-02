@@ -5,9 +5,9 @@ Meteor.subscribe('workItems');
 Meteor.subscribe('users');
 Meteor.subscribe('estimates');
 
-Session.setDefault("sessionId", null);
-Session.setDefault("user", null);
-Session.setDefault("currentWorkItemId", null);
+Session.setDefault('sessionId', null);
+Session.setDefault('user', null);
+Session.setDefault('currentWorkItemId', null);
 
 
 Template.index.helpers({
