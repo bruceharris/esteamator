@@ -1,3 +1,5 @@
+'use strict';
+
 // TODO: subscribe only to the ones we care about
 Meteor.subscribe('workItems');
 Meteor.subscribe('users');
