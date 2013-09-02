@@ -8,6 +8,7 @@ Meteor.subscribe('estimates');
 Session.setDefault('sessionId', null);
 Session.setDefault('user', null);
 Session.setDefault('currentWorkItemId', null);
+Session.setDefault('page', null);
 
 
 Template.index.helpers({
