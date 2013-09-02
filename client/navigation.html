@@ -1,5 +1,8 @@
 <template name="navigation">
   <nav>
     <a href="/">home</a>
+    {{#if shouldShowReportLink}}
+      <a href="{{reportHref}}">report</a>
+    {{/if}}
   </nav>
 </template>
