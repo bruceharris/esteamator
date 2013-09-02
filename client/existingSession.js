@@ -15,4 +15,6 @@ define('existingSession', ['collections'], function(collections) {
 
   });
 
+  return null;
+
 });
