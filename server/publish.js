@@ -1,4 +1,5 @@
 define('publish', ['collections'], function(collections) {
+  'use strict';
 
   // Publish all work items for requested sessionId
   Meteor.publish('workItems', function (sessionId) {

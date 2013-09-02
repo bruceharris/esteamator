@@ -1,4 +1,5 @@
 define('estimateHelpers', ['collections'], function(collections) {
+  'use strict';
 
   var helpers = {
 
