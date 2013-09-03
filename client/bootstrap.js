@@ -11,9 +11,9 @@ define('bootstrap', ['collections'], function(collections) {
   Deps.autorun(setUserToSessionIfStoredLocally);
 
   function subscribeToDataCollections() {
-    Meteor.subscribe('workItems', Session.get('sessionId'));
-    Meteor.subscribe('users', Session.get('sessionId'));
-    Meteor.subscribe('estimates', Session.get('sessionId'));
+    _(['workItems', 'users', 'estimates']).forEach(function(collection){
+      Meteor.subscribe(collection, Session.get('sessionId'));
+    });
   }
 
   function setUserToSessionIfStoredLocally() {

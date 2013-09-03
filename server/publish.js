@@ -1,15 +1,15 @@
 define('publish', ['collections'], function(collections) {
   'use strict';
 
-  function publishForReqestedSessionId(collection) {
+  var collectionsToPublish = _(['workItems', 'users', 'estimates']);
+
+  function publishForRequestedSessionId(collection) {
     Meteor.publish(collection, function(sessionId) {
       return collections[collection].find({ sessionId: sessionId });
     });
   }
-
-  publishForReqestedSessionId('workItems');
-  publishForReqestedSessionId('users');
-  publishForReqestedSessionId('estimates');
+  
+  collectionsToPublish.forEach(publishForRequestedSessionId);
 
   return null;
 
