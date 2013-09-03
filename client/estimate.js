@@ -3,10 +3,24 @@ define('estimate', ['collections', 'estimateHelpers'], function(collections, hel
 
   Template.estimate.events = {
     'click #nextItem': createNextWorkItem,
-    'change input.description': setWorkItemDescription
+    'change input.description': setWorkItemDescription,
+    'click a#editDescription': enterEditMode
   };
 
   Template.estimate.helpers(helpers);
+  Template.estimate.helpers({
+
+    descriptionIsEditable: function() {
+      console.log(helpers.currentWorkItem());
+      console.log(Session.get('isEditingWorkItemDescription'));
+      return !helpers.currentWorkItem().description || Session.get('isEditingWorkItemDescription');
+    },
+
+    placeholder: function() {
+      return helpers.currentWorkItem().description || 'optional description';
+    }
+
+  });
 
   function createNextWorkItem(event, template) {
     var nextIndex = helpers.currentWorkItem().index + 1;
@@ -18,10 +32,15 @@ define('estimate', ['collections', 'estimateHelpers'], function(collections, hel
   }
 
   function setWorkItemDescription(event, template) {
+    Session.set('isEditingWorkItemDescription', false);
     collections.workItems.update(
       Session.get('currentWorkItemId'),
       {$set: {description: template.find('input.description').value } }
     );
+  }
+
+  function enterEditMode(event, template) {
+    Session.set('isEditingWorkItemDescription', true);
   }
 
   return null;

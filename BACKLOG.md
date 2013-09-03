@@ -9,13 +9,6 @@
     And update the screens of all participants to indicate I have left
     And navigate to an exit screen that provides a link for me to re-enter the session
 
-## The Item Estimate screen - editing item description
-
-    Given a valid session
-    When I view the Item Estimate screen
-    I should have the ability to edit the description of the work item after it's been set
-    And doing so should update the description as displayed on the screens of all participants
-
 ## The Item Estimate screen - editing my name
 
     Given a valid session
@@ -107,5 +100,12 @@
     There should be a section displaying the description of the item being estimated
     And it should have an edit link that allows me to enter/edit/save the description
     And editing/saving should update the description as displayed on the screens of all participants
+
+## The Item Estimate screen - editing item description
+
+    Given a valid session
+    When I view the Item Estimate screen
+    I should have the ability to edit the description of the work item after it's been set
+    And doing so should update the description as displayed on the screens of all participants
 
 -->

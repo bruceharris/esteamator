@@ -10,6 +10,8 @@ define('bootstrap', ['collections'], function(collections) {
   Session.setDefault('user', null);
   Session.setDefault('currentWorkItemId', null);
   Session.setDefault('page', null);
+  Session.setDefault('isEditingWorkItemDescription', false);
+
 
   Deps.autorun(setUserToSessionIfStoredLocally);
 
