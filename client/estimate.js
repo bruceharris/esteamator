@@ -11,8 +11,6 @@ define('estimate', ['collections', 'estimateHelpers'], function(collections, hel
   Template.estimate.helpers({
 
     descriptionIsEditable: function() {
-      console.log(helpers.currentWorkItem());
-      console.log(Session.get('isEditingWorkItemDescription'));
       return !helpers.currentWorkItem().description || Session.get('isEditingWorkItemDescription');
     },
 
