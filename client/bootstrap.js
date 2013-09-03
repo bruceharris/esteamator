@@ -1,19 +1,20 @@
 define('bootstrap', ['collections'], function(collections) {
   'use strict';
 
-  // TODO: subscribe only to the ones we care about
-  Meteor.subscribe('workItems');
-  Meteor.subscribe('users');
-  Meteor.subscribe('estimates');
-
   Session.setDefault('sessionId', null);
   Session.setDefault('user', null);
   Session.setDefault('currentWorkItemId', null);
   Session.setDefault('page', null);
   Session.setDefault('isEditingWorkItemDescription', false);
 
-
+  Deps.autorun(subscribeToDataCollections);
   Deps.autorun(setUserToSessionIfStoredLocally);
+
+  function subscribeToDataCollections() {
+    Meteor.subscribe('workItems', Session.get('sessionId'));
+    Meteor.subscribe('users', Session.get('sessionId'));
+    Meteor.subscribe('estimates', Session.get('sessionId'));
+  }
 
   function setUserToSessionIfStoredLocally() {
     if (!Session.equals('user', null)) return;
