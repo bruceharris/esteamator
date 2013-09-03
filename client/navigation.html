@@ -1,11 +1,13 @@
 <template name="navigation">
   <nav>
-    <a href="/">home</a>
-    {{#if shouldShowReportLink}}
-      <a href="{{reportHref}}">report</a>
-    {{/if}}
-    {{#if onReportPage}}
-      <a href="{{sessionHref}}">resume estimating</a>
-    {{/if}}
+    <ul class="nav nav-list">
+      <li> <a href="/">home</a> </li>
+      {{#if shouldShowReportLink}}
+        <li> <a href="{{reportHref}}">report</a> </li>
+      {{/if}}
+      {{#if onReportPage}}
+        <li> <a href="{{sessionHref}}">resume</a> </li>
+      {{/if}}
+    </ul>
   </nav>
 </template>
