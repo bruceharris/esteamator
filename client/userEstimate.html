@@ -1,26 +1,26 @@
 <template name="userEstimate">
-  <li class="userEstimate">
-    <span class="username">
+  <div class="userEstimate row">
+    <span class="username span2 text-right">
       {{name}}
     </span>
-    <span class="estimateValue">
+    <span class="estimateValue span1">
       {{#if userIsMe}}
         {{#if userSubmittedEstimate}}
           {{estimateValue}}
         {{else}}
-          <input type="text" size="2"/>
+          <input type="text" class="span1"/>
         {{/if}}
       {{else}}
         {{#if allEstimatesSubmitted}}
           {{estimateValue}}
         {{else}}
           {{#if userSubmittedEstimate}}
-            [submitted]
+            <i class="icon-check"></i>
           {{else}}
-            [pending]
+            <i class="icon-question-sign"></i>
           {{/if}}
         {{/if}}
       {{/if}}
     </span>
-  </li>
+  </div>
 </template>

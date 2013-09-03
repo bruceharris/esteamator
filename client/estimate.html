@@ -1,5 +1,5 @@
 <template name="estimate" class="estimate">
-  <div>#{{currentWorkItem.index}}
+  <div class="well">#{{currentWorkItem.index}}
     {{#if descriptionIsEditable}}
       <input class="description"  placeholder="{{placeholder}}"/>
     {{else}}
@@ -7,11 +7,11 @@
       <a href="#" id="editDescription"><i class="icon-pencil"></i></a>
     {{/if}}
   </div>
-  <ul>
+  <div>
   	{{#each usersInSession}}
   	  {{> userEstimate}}
   	{{/each}}
-  </ul>
+  </div>
   {{#if allEstimatesSubmitted}}
     <button type="button" id="nextItem">next item</button>
   {{/if}}
