@@ -23,6 +23,10 @@ define('navigation',
 
     shouldShowReportLink: function() {
       return atLeastOneItemEstimated() && pageHelpers.onExistingSessionPage();
+    },
+
+    inSession: function() {
+      return !Session.equals('sessionId', null);
     }
 
   });
