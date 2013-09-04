@@ -2,15 +2,17 @@ define('userEstimate', ['collections', 'estimateHelpers'], function(collections,
   'use strict';
 
   Template.userEstimate.events = {
-    'change .estimateValue input': function(event, template) {
+    'change .estimateValue input': setEstimate
+  };
+
+  function setEstimate(event, template) {
       collections.estimates.insert({
         sessionId: helpers.sessionId(),
         userId: helpers.currentUser()._id,
         workItemId: helpers.currentWorkItem()._id,
-        value: $('.estimateValue input').val()
+        value: template.find('.estimateValue input').value
       });
-    }
-  };
+  }
 
   Template.userEstimate.userIsMe = function() {
     return this.name === helpers.currentUser().name;
