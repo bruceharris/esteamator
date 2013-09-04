@@ -1,7 +1,16 @@
 <template name="userEstimate">
   <div class="userEstimate row">
     <span class="username span2 text-right">
-      {{name}}
+      {{#if isEditingUserName}}
+        <input type="text" class="span2" value="{{name}}"/>
+      {{else}}
+        {{name}}
+      {{/if}}
+    </span>
+    <span class="userActions span1">
+      {{#if shouldShowEditLinkForUserName}}
+        <a href="#" class="editName"><i class="icon-pencil"></i></a>
+      {{/if}}
     </span>
     <span class="estimateValue span1">
       {{#if userIsMe}}

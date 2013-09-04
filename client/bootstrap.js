@@ -6,6 +6,7 @@ define('bootstrap', ['collections'], function(collections) {
   Session.setDefault('currentWorkItemId', null);
   Session.setDefault('page', null);
   Session.setDefault('isEditingWorkItemDescription', false);
+  Session.setDefault('isEditingUserName', false);
 
   Deps.autorun(subscribeToDataCollections);
   Deps.autorun(setUserToSessionIfStoredLocally);
