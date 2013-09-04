@@ -1,7 +1,7 @@
 define('newSession', ['router', 'collections'], function(router, collections){
   'use strict';
 
-  Template.newSession.events({ 'click button': createNewSession });
+  Template.newSession.events({ 'click a.startEstimating': createNewSession });
 
   function createNewSession() {
     var sessionId = collections.sessions.insert({});
