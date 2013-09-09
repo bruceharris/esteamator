@@ -26,6 +26,10 @@
 
 ## Option for best/expected/worst
 
+## Input validation - estimates should be numeric
+
+## Opt out of estimate - by user or 2 others?
+
 
 <!--
 
