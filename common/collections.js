@@ -4,14 +4,14 @@ define('collections', [], function() {
   return {
 
     // sessions { _id: 'mongo generated unique id' }
-    sessions:  new Meteor.Collection("sessions"),
+    sessions:  new Meteor.Collection('sessions'),
 
     // users {
     //   _id: 'mongo generated unique id',
     // 	sessionId: 'session._id',
     // 	name: 'user name'
     // }
-    users: new Meteor.Collection("users"),
+    users: new Meteor.Collection('users'),
 
     // workItems {
     //   _id: 'mongo generated unique id',
@@ -19,7 +19,7 @@ define('collections', [], function() {
     //   index: '1 based index of work items in this session',
     //   description: 'brief summary of user story'
     // }
-    workItems: new Meteor.Collection("workItems"),
+    workItems: new Meteor.Collection('workItems'),
 
     // estimates {
     //   _id: 'mongo generated unique id',
@@ -28,7 +28,7 @@ define('collections', [], function() {
     //  userId: 'user._id',
     //  value: 'estimate value'
     // }
-    estimates: new Meteor.Collection("estimates")
+    estimates: new Meteor.Collection('estimates')
 
   };
 
