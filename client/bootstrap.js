@@ -7,6 +7,7 @@ define('bootstrap', ['collections'], function(collections) {
   Session.setDefault('page', null);
   Session.setDefault('isEditingWorkItemDescription', false);
   Session.setDefault('isEditingUserName', false);
+  Session.setDefault('error.duplicateUsername', null);
 
   Deps.autorun(subscribeToDataCollections);
   Deps.autorun(setUserToSessionIfStoredLocally);
