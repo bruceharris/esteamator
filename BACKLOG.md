@@ -20,13 +20,13 @@
     And further input from the removed participant should not be honored
     (details of behavior for the removed participant TBD)
 
+## Remove insecure
+
 ## Report - compute average and std dev
 
 ## Report - download CSV
 
 ## Option for best/expected/worst
-
-## Input validation - estimates should be numeric
 
 ## Opt out of estimate - by user or 2 others?
 
