@@ -1,6 +1,16 @@
 define('collectionRules', ['collections'], function(collections) {
   'use strict';
 
+  var anyInsert = {
+    insert: function(userId, doc) {
+      return true;
+    }
+  }
+
+  // currently no restrictions on creating sessions or workItems
+  collections.sessions.allow(anyInsert);
+  collections.workItems.allow(anyInsert);
+
   function isValidEstimate(value) {
     return _.isFinite(value) && value >= 0;
   };
@@ -25,7 +35,6 @@ define('collectionRules', ['collections'], function(collections) {
   collections.users.allow({
 
     insert: function(userId, doc) {
-      console.log(doc.name, isNonBlankString(doc.name));
       return isNonBlankString(doc.name);
     },
 

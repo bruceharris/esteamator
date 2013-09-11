@@ -20,8 +20,6 @@
     And further input from the removed participant should not be honored
     (details of behavior for the removed participant TBD)
 
-## Remove insecure
-
 ## Report - compute average and std dev
 
 ## Report - download CSV
@@ -31,6 +29,8 @@
 ## Opt out of estimate - by user or 2 others?
 
 ## Editable consensus for each work item
+
+## Collection rules for updates
 
 
 <!--
