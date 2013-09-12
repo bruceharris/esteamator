@@ -1,7 +1,7 @@
 define('newSession', ['router', 'collections'], function(router, collections){
   'use strict';
 
-  Template.newSession.events({ 'click a.startEstimating': createNewSession });
+  Template.newSession.events({ 'click button.startEstimating': createNewSession });
 
   function createNewSession() {
     collections.sessions.insert({}, onSessionInsert);

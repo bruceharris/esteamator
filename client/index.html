@@ -1,16 +1,15 @@
 <head>
   <title>Esteamator</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
   <div class="container">
-    {{> navigation }}
     {{> index }}
   </div>
 </body>
 
 <template name="index">
+  {{> navigation }}
   {{#if noSession}}
     {{> newSession}}
   {{/if}}

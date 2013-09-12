@@ -2,7 +2,7 @@ define('estimate', ['collections', 'estimateHelpers'], function(collections, hel
   'use strict';
 
   Template.estimate.events = {
-    'click #nextItem': createNextWorkItem,
+    'click button.nextItem': createNextWorkItem,
     'change input.description': setWorkItemDescription,
     'click a#editDescription': enterEditMode
   };
@@ -38,6 +38,7 @@ define('estimate', ['collections', 'estimateHelpers'], function(collections, hel
   }
 
   function enterEditMode(event, template) {
+    event.preventDefault();
     Session.set('isEditingWorkItemDescription', true);
   }
 

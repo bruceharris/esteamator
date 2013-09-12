@@ -20,12 +20,14 @@ define('userEstimate', ['collections', 'estimateHelpers'], function(collections,
     var newName = template.find('.username input').value,
         user = Session.get('user');
     collections.users.update(user._id, {$set: { name: newName } });
+    // TODO only set on success
     user.name = newName;
     Session.set('user', user);
     Session.set('isEditingUserName', false);
   }
 
   function enterEditModeForUserName(event, template) {
+    event.preventDefault();
     Session.set('isEditingUserName', true);
   }
 
