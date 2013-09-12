@@ -10,36 +10,36 @@
       {{/if}}
     </div>
 
-    <div>
+    <div class="userEstimates section">
     	{{#each usersInSession}}
     	  {{> userEstimate}}
     	{{/each}}
     </div>
 
     {{#if allEstimatesSubmitted}}
-      <div class="summary">
+      <div class="summary section">
         <div class="row">
-          <div class="span3 text-right">Lowest</div>
-          <div class="span1">{{currentWorkItem.summary.min}}</div>
+          <div>Lowest</div>
+          <div>{{currentWorkItem.summary.min}}</div>
         </div>
         <div class="row">
-          <div class="span3 text-right">Highest</div>
-          <div class="span1">{{currentWorkItem.summary.max}}</div>
+          <div>Highest</div>
+          <div>{{currentWorkItem.summary.max}}</div>
         </div>
         <div class="row">
-          <div class="span3 text-right">Low - High Spread</div>
-          <div class="span1">{{currentWorkItem.summary.spread}}</div>
+          <div>Low - High Spread</div>
+          <div>{{currentWorkItem.summary.spread}}</div>
         </div>
         <div class="row">
-          <div class="span3 text-right">Mean</div>
-          <div class="span1">{{currentWorkItem.summary.mean}}</div>
+          <div>Mean</div>
+          <div>{{currentWorkItem.summary.mean}}</div>
         </div>
         <div class="row">
-          <div class="span3 text-right">Standard Deviation</div>
-          <div class="span1">{{currentWorkItem.summary.stdDev}}</div>
+          <div>Standard Deviation</div>
+          <div>{{currentWorkItem.summary.stdDev}}</div>
         </div>
       </div>
-      <button type="button" class="btn btn-primary nextItem">next item</button>
+      <button type="button" class="btn btn-primary clearfix nextItem">next item</button>
     {{/if}}
   </div>
 </template>

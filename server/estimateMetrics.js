@@ -19,8 +19,7 @@ define('estimateMetrics', ['collections'], function(collections) {
   function createSummary(estimates) {
     var min = _(estimates).min(getValue).value,
         max = _(estimates).max(getValue).value,
-        sum = estimates.reduce(sumOfValue, 0),
-        mean = sum / estimates.length,
+        mean = estimates.reduce(sumOfValue, 0) / estimates.length,
         sumOfSquaredDifferences = estimates.map(getValue).map(differenceToMean).reduce(sumSquares, 0),
         stdDev = Math.sqrt(sumOfSquaredDifferences / estimates.length);
 
@@ -32,8 +31,8 @@ define('estimateMetrics', ['collections'], function(collections) {
       min: min,
       max: max,
       spread: max - min,
-      mean: mean,
-      stdDev: stdDev
+      mean: round2dec(mean),
+      stdDev: round2dec(stdDev)
     };
 
   }
@@ -48,6 +47,10 @@ define('estimateMetrics', ['collections'], function(collections) {
 
   function sumSquares(memo, value) {
     return value * value + memo;
+  }
+
+  function round2dec(value) {
+    return Math.round(value * 100) * .01;
   }
 
   return null;

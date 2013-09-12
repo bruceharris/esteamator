@@ -1,0 +1,16 @@
+div.estimate div.section {
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  padding: 5px;
+  margin-bottom: 5px;
+  width: 300px;
+  float: left;
+}
+
+div.estimate div.section.summary div.row div {
+  float: left;
+}
+
+div.estimate div.section.summary div.row div:nth-child(1) {
+  width: 200px;
+}
