@@ -32,6 +32,10 @@
 
 ## Collection rules for updates
 
+## When editing fields - should be able to cancel
+
+## Router should validate session
+
 
 <!--
 
