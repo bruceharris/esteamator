@@ -1,10 +1,10 @@
 <template name="estimate">
   <div class="well">#{{currentWorkItem.index}}
     {{#if descriptionIsEditable}}
-      <input class="description"  placeholder="{{placeholder}}"/>
+      <input type="text" class="description"  placeholder="{{placeholder}}"/>
     {{else}}
       {{currentWorkItem.description}}
-      <a href="#" id="editDescription"><i class="icon-pencil"></i></a>
+      <a href="#" id="editDescription"><i class="icon-edit"></i></a>
     {{/if}}
   </div>
   <div>

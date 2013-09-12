@@ -1,23 +1,25 @@
 <template name="userEstimate">
   <div class="userEstimate row">
-    <span class="username span2 text-right">
+    <div class="userActions">
+      {{#if shouldShowEditLinkForUserName}}
+        <a href="#" class="editName" title="edit name"><i class="icon-edit"></i></a>
+      {{else}}
+        &nbsp;
+      {{/if}}
+    </div>
+    <div class="username">
       {{#if isEditingUserName}}
-        <input type="text" class="span2" value="{{name}}"/>
+        <input type="text" placeholder="{{name}}"/>
       {{else}}
         {{name}}
       {{/if}}
-    </span>
-    <span class="userActions span1">
-      {{#if shouldShowEditLinkForUserName}}
-        <a href="#" class="editName"><i class="icon-pencil"></i></a>
-      {{/if}}
-    </span>
-    <span class="estimateValue span1">
+    </div>
+    <div class="estimateValue">
       {{#if userIsMe}}
         {{#if userSubmittedEstimate}}
           {{estimateValue}}
         {{else}}
-          <input type="text" class="span1"/>
+          <input type="text" placeholder="?"/>
         {{/if}}
       {{else}}
         {{#if allEstimatesSubmitted}}
@@ -30,6 +32,6 @@
           {{/if}}
         {{/if}}
       {{/if}}
-    </span>
+    </div>
   </div>
 </template>

@@ -1,3 +1,35 @@
 div.userEstimate {
-  height: 40px;
+  border-top: 1px solid #dddddd;
+  padding: 8px;
+  width: 260px;
+}
+
+div.userEstimate input[type=text] {
+  height: 12px;
+  margin-bottom: 0px;
+}
+
+div.userEstimate.row div {
+  float: left;
+  margin-left: 10px;
+}
+
+div.userEstimate.row div.userActions {
+  width: 20px;
+}
+
+div.userEstimate.row div.username {
+  width: 120px;
+}
+
+div.userEstimate.row div.username input {
+  width: 100px;
+}
+
+div.userEstimate.row div.estimateValue {
+  width: 40px;
+}
+
+div.userEstimate.row div.estimateValue input {
+  width: 30px;
 }
