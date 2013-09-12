@@ -1,40 +1,45 @@
 <template name="estimate">
-  <div class="well">#{{currentWorkItem.index}}
-    {{#if descriptionIsEditable}}
-      <input type="text" class="description"  placeholder="{{placeholder}}"/>
-    {{else}}
-      {{currentWorkItem.description}}
-      <a href="#" id="editDescription"><i class="icon-edit"></i></a>
+  <div class="estimate">
+
+    <div class="well">#{{currentWorkItem.index}}
+      {{#if descriptionIsEditable}}
+        <input type="text" class="description"  placeholder="{{placeholder}}"/>
+      {{else}}
+        {{currentWorkItem.description}}
+        <a href="#" id="editDescription"><i class="icon-edit"></i></a>
+      {{/if}}
+    </div>
+
+    <div>
+    	{{#each usersInSession}}
+    	  {{> userEstimate}}
+    	{{/each}}
+    </div>
+
+    {{#if allEstimatesSubmitted}}
+      <div class="summary">
+        <div class="row">
+          <div class="span3 text-right">Lowest</div>
+          <div class="span1">{{currentWorkItem.summary.min}}</div>
+        </div>
+        <div class="row">
+          <div class="span3 text-right">Highest</div>
+          <div class="span1">{{currentWorkItem.summary.max}}</div>
+        </div>
+        <div class="row">
+          <div class="span3 text-right">Low - High Spread</div>
+          <div class="span1">{{currentWorkItem.summary.spread}}</div>
+        </div>
+        <div class="row">
+          <div class="span3 text-right">Mean</div>
+          <div class="span1">{{currentWorkItem.summary.mean}}</div>
+        </div>
+        <div class="row">
+          <div class="span3 text-right">Standard Deviation</div>
+          <div class="span1">{{currentWorkItem.summary.stdDev}}</div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary nextItem">next item</button>
     {{/if}}
   </div>
-  <div>
-  	{{#each usersInSession}}
-  	  {{> userEstimate}}
-  	{{/each}}
-  </div>
-  {{#if allEstimatesSubmitted}}
-    <div class="summary">
-      <div class="row">
-        <div class="span3 text-right">Lowest</div>
-        <div class="span1">{{currentWorkItem.summary.min}}</div>
-      </div>
-      <div class="row">
-        <div class="span3 text-right">Highest</div>
-        <div class="span1">{{currentWorkItem.summary.max}}</div>
-      </div>
-      <div class="row">
-        <div class="span3 text-right">Low - High Spread</div>
-        <div class="span1">{{currentWorkItem.summary.spread}}</div>
-      </div>
-      <div class="row">
-        <div class="span3 text-right">Mean</div>
-        <div class="span1">{{currentWorkItem.summary.mean}}</div>
-      </div>
-      <div class="row">
-        <div class="span3 text-right">Standard Deviation</div>
-        <div class="span1">{{currentWorkItem.summary.stdDev}}</div>
-      </div>
-    </div>
-    <button type="button" class="btn btn-primary nextItem">next item</button>
-  {{/if}}
 </template>
