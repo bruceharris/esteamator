@@ -2,15 +2,24 @@ div.estimate div.section {
   border: 1px solid #dddddd;
   border-radius: 4px;
   padding: 5px;
-  margin-bottom: 5px;
-  width: 300px;
-  float: left;
+  margin-bottom: 10px;
+  min-width: 300px;
 }
 
-div.estimate div.section.summary div.row div {
-  float: left;
+div.estimate div.section.summary div.metric {
+  padding: 4px;
+  height: 20px;
 }
 
-div.estimate div.section.summary div.row div:nth-child(1) {
-  width: 200px;
+div.estimate div.section.summary div.metric div {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+div.estimate div.section.summary div.metric div:nth-child(1) {
+  width: 150px;
+}
+
+div.estimate div.section.summary div.metric div:nth-child(2) {
+  width: 50px;
 }

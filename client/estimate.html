@@ -18,28 +18,28 @@
 
     {{#if allEstimatesSubmitted}}
       <div class="summary section">
-        <div class="row">
+        <div class="metric">
           <div>Lowest</div>
           <div>{{currentWorkItem.summary.min}}</div>
         </div>
-        <div class="row">
+        <div class="metric">
           <div>Highest</div>
           <div>{{currentWorkItem.summary.max}}</div>
         </div>
-        <div class="row">
+        <div class="metric">
           <div>Low - High Spread</div>
           <div>{{currentWorkItem.summary.spread}}</div>
         </div>
-        <div class="row">
+        <div class="metric">
           <div>Mean</div>
           <div>{{currentWorkItem.summary.mean}}</div>
         </div>
-        <div class="row">
+        <div class="metric">
           <div>Standard Deviation</div>
           <div>{{currentWorkItem.summary.stdDev}}</div>
         </div>
       </div>
-      <button type="button" class="btn btn-primary clearfix nextItem">next item</button>
+      <button type="button" class="btn btn-primary nextItem">next item</button>
     {{/if}}
   </div>
 </template>

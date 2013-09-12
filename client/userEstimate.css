@@ -1,7 +1,6 @@
 div.userEstimate {
-  border-top: 1px solid #dddddd;
-  padding: 8px;
-  width: 260px;
+  padding: 4px;
+  height: 20px;
 }
 
 div.userEstimate input[type=text] {
@@ -9,27 +8,27 @@ div.userEstimate input[type=text] {
   margin-bottom: 0px;
 }
 
-div.userEstimate.row div {
-  float: left;
+div.userEstimate div {
+  display: inline-block;
   margin-left: 10px;
 }
 
-div.userEstimate.row div.userActions {
+div.userEstimate div.userActions {
   width: 20px;
 }
 
-div.userEstimate.row div.username {
+div.userEstimate div.username {
   width: 120px;
 }
 
-div.userEstimate.row div.username input {
+div.userEstimate div.username input {
   width: 100px;
 }
 
-div.userEstimate.row div.estimateValue {
+div.userEstimate div.estimateValue {
   width: 40px;
 }
 
-div.userEstimate.row div.estimateValue input {
+div.userEstimate div.estimateValue input {
   width: 30px;
 }
