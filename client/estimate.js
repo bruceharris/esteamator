@@ -8,6 +8,7 @@ define('estimate', ['collections', 'estimateHelpers'], function(collections, hel
   };
 
   Template.estimate.helpers(helpers);
+
   Template.estimate.helpers({
 
     descriptionIsEditable: function() {

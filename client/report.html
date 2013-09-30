@@ -9,7 +9,7 @@
     </tr>
     {{#each estimatesByWorkItemByUser}}
       <tr>
-        <td>{{ workItem.index }}</td>
+        <th>{{ workItem.index }}</th>
         <td>{{ workItem.description }}</td>
         {{#each estimatesByUser}}
           <td>{{this}}</td>
