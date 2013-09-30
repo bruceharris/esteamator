@@ -46,6 +46,25 @@ define('estimateHelpers', ['collections'], function(collections) {
       return result;
     },
 
+    currentWorkItemSummaryMetrics: function() {
+      var summary = this.currentWorkItem().summary,
+          keys = ['min', 'max', 'spread', 'mean', 'stdDev'],
+          descriptions = {
+            min: 'Lowest',
+            max: 'Highest',
+            spread: 'Spread',
+            mean: 'Mean',
+            stdDev: 'Standard Deviation'
+          };
+
+      return keys.map(function(key) {
+        return {
+          description: descriptions[key],
+          value: summary[key]
+        };
+      });
+    },
+
     usersInSession: function() {
       return collections.users.find(
         newSessionQuery(),
