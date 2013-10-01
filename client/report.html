@@ -3,6 +3,9 @@
     <tr>
       <th>#</th>
       <th>Description</th>
+      {{#each summaryHeaders}}
+        <th>{{this}}</th>
+      {{/each}}
       {{#each usersInSession}}
         <th>{{name}}</th>
       {{/each}}
@@ -11,6 +14,9 @@
       <tr>
         <th>{{ workItem.index }}</th>
         <td>{{ workItem.description }}</td>
+        {{#each summaryMetrics}}
+          <td>{{value}}</td>
+        {{/each}}
         {{#each estimatesByUser}}
           <td>{{this}}</td>
         {{/each}}

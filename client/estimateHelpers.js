@@ -46,9 +46,9 @@ define('estimateHelpers', ['collections'], function(collections) {
       return result;
     },
 
-    currentWorkItemSummaryMetrics: function() {
-      var summary = this.currentWorkItem().summary,
-          keys = ['min', 'max', 'spread', 'mean', 'stdDev'],
+    // not to be used directly in templates as it requires an argument
+    workItemSummaryMetrics: function(summary) {
+      var keys = ['min', 'max', 'spread', 'mean', 'stdDev'],
           descriptions = {
             min: 'Lowest',
             max: 'Highest',
@@ -63,6 +63,14 @@ define('estimateHelpers', ['collections'], function(collections) {
           value: summary[key]
         };
       });
+    },
+
+    currentWorkItemSummaryMetrics: function() {
+      var summary = this.currentWorkItem().summary;
+      if (!summary) {
+        return null;
+      }
+      return this.workItemSummaryMetrics(summary);
     },
 
     usersInSession: function() {

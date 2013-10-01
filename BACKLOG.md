@@ -20,8 +20,6 @@
     And further input from the removed participant should not be honored
     (details of behavior for the removed participant TBD)
 
-## Report - compute average and std dev
-
 ## Report - download CSV
 
 ## Option for best/expected/worst
@@ -36,6 +34,7 @@
 
 ## Router should validate session
 
+## Remove jQuery
 
 <!--
 

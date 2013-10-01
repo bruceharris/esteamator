@@ -29,6 +29,7 @@ define('report', ['collections', 'estimateHelpers'], function(collections, helpe
 
       result.push({
         workItem: item,
+        summaryMetrics: helpers.workItemSummaryMetrics(item.summary),
         estimatesByUser: users.map(estimateOrNA)
       });
 
@@ -45,6 +46,17 @@ define('report', ['collections', 'estimateHelpers'], function(collections, helpe
 
     return result;
   }
+
+  Template.report.summaryHeaders = function() {
+    var workItems = helpers.workItemsInSession();
+    if (!workItems.length) return null;
+    var summary = workItems[0].summary;
+    if (!summary) return null;
+
+    return helpers.workItemSummaryMetrics(summary).map(function(metric) {
+      return metric.description;
+    });
+  };
 
   return null;
 
