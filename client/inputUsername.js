@@ -35,14 +35,11 @@ define('inputUsername', ['collections', 'estimateHelpers'], function(collections
   	  name: name 
     };
 
-    collections.users.insert(user, uponInsert);
+    var id = collections.users.insert(user, handleInsertFail);
+    setUserLocally(_(user).extend({ _id: id }));
 
-    function uponInsert(err, id) {
-      if (err) {
-        // TODO graceful error handling
-        return;
-      }
-      setUserLocally(_(user).extend({ _id: id }));
+    function handleInsertFail(err, id) {
+      if (err) setUserLocally(null);
     }
 
   }
@@ -60,7 +57,7 @@ define('inputUsername', ['collections', 'estimateHelpers'], function(collections
   }
 
   function setUserLocally(user) {
-    window.sessionStorage.setItem('userId', user._id);
+    if (user) window.sessionStorage.setItem('userId', user._id);
     Session.set('user', user);
     Session.set(duplicateUsernameKey, null);
   }
