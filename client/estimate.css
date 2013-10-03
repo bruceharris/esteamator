@@ -3,7 +3,6 @@ div.estimate div.section {
   border-radius: 4px;
   padding: 5px;
   margin-bottom: 10px;
-  min-width: 300px;
 }
 
 div.estimate div.section.summary div.metric {
