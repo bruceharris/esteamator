@@ -34,7 +34,11 @@
 
 ## Router should validate session
 
-## Remove jQuery
+## Bug - report should work even if there's an item that hasn't been estimated yet
+
+## use blur not change
+
+## user story description should not accept blank
 
 <!--
 

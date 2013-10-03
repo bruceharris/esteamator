@@ -6,7 +6,6 @@
 preserve-inputs
 underscore
 backbone
-jquery
 standard-app-packages
 require
 bootstrap
