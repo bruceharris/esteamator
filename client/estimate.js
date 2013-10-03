@@ -27,6 +27,7 @@ define('estimate', ['collections', 'estimateHelpers'], function(collections, hel
       sessionId: helpers.sessionId(),
       index: nextIndex
     });
+    // TODO error handling
     Session.set('currentWorkItemId', itemId);
   }
 

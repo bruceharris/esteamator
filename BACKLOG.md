@@ -40,6 +40,8 @@
 
 ## user story description should not accept blank
 
+## editing username should not accept blank
+
 <!--
 
 # Completed items
