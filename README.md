@@ -1,5 +1,5 @@
-__Esteamator__ is an idea that may evolve into a tool that will help agile software teams with "planning poker".
+__Esteamator__ is a tool that helps agile software teams with "planning poker".
 
-It should facilitate collecting estimates of effort for backlog items from team members to be averaged into consensus estimates.
+It facilitates collecting estimates of effort for backlog items from team members to be averaged into consensus estimates.
 
-It should supress the visibility of others' estimates for each backlog item until estimates have been entered by all team members.
+It supresses the visibility of the estimates of other team members for each backlog item until estimates have been entered by all team members.
