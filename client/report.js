@@ -3,6 +3,10 @@ define('report', ['collections', 'estimateHelpers'], function(collections, helpe
 
   Template.report.helpers(helpers);
 
+  function hasSummary(workItem) {
+    return !!workItem.summary;
+  }
+
   /**
    * Create a matrix by work item by user to ensure we map
    * estimates to proper user for display in table output.
@@ -18,7 +22,7 @@ define('report', ['collections', 'estimateHelpers'], function(collections, helpe
    */
   Template.report.estimatesByWorkItemByUser = function() {
     var result = [],
-        workItems = helpers.workItemsInSession(),
+        workItems = _(helpers.workItemsInSession()).filter(hasSummary),
         users = helpers.usersInSession(),
         estimates = collections.estimates.find(helpers.newSessionQuery()).fetch();
 
