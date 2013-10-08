@@ -34,13 +34,15 @@
 
 ## Router should validate session
 
-## Bug - report should work even if there's an item that hasn't been estimated yet
-
 ## use blur not change
 
 ## user story description should not accept blank
 
 ## editing username should not accept blank
+
+## improve menu styling
+
+## bulk upload user stories
 
 <!--
 
