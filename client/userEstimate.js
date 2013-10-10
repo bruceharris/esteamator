@@ -2,9 +2,9 @@ define('userEstimate', ['collections', 'estimateHelpers'], function(collections,
   'use strict';
 
   Template.userEstimate.events = {
-    'change .estimateValue input': setEstimate,
+    'blur .estimateValue input': setEstimate,
     'click .userActions a.editName': enterEditModeForUserName,
-    'change .username input': setUserName
+    'blur .username input': setUserName
   };
 
   function setEstimate(event, template) {

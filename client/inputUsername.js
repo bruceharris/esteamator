@@ -16,7 +16,7 @@ define('inputUsername', ['collections', 'estimateHelpers'], function(collections
   });
 
   Template.inputUsername.events({
-    'change input': registerUsername,
+    'blur input': registerUsername,
     'click a.willChange': clearError,
     'click a.sameUser': assumeIdentityOfExistingUser
   });
