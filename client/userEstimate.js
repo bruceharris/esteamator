@@ -55,6 +55,11 @@ define('userEstimate', ['collections', 'estimateHelpers'], function(collections,
       return this.name === helpers.currentUser().name && !Session.get('isEditingUserName');
     },
 
+    statusCssClass: function() {
+      var alreadySubmitted = helpers.estimateForCurrentWorkItemForUser(this._id) !== null;
+      return alreadySubmitted ? 'submitted' : 'pending';
+    }
+
   };
 
 

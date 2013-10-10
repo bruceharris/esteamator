@@ -32,3 +32,11 @@ div.userEstimate div.estimateValue {
 div.userEstimate div.estimateValue input {
   width: 30px;
 }
+
+div.userEstimate.submitted {
+  color: green;
+}
+
+div.userEstimate.pending {
+  color: orange;
+}
