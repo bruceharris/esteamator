@@ -3,7 +3,7 @@ define('estimate', ['collections', 'estimateHelpers'], function(collections, hel
 
   Template.estimate.events = {
     'click button.nextItem': createNextWorkItem,
-    'blur input.description': setWorkItemDescription,
+    'change input.description': setWorkItemDescription,
     'click a#editDescription': enterEditMode
   };
 
