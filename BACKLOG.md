@@ -28,6 +28,8 @@
 
 ## Editable consensus for each work item
 
+## Option to re-estimate an item
+
 ## Collection rules for updates
 
 ## When editing fields - should be able to cancel
