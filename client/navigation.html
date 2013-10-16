@@ -1,15 +1,17 @@
 <template name="navigation">
-  <nav>
-    <ul class="nav nav-list">
-      {{#if inSession}}
-        <li> <a href="/">home</a> </li>
-      {{/if}}
+  {{#if inSession}}
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+    <ul class="nav">
+      <li> <a href="/">New Session</a> </li>
       {{#if shouldShowReportLink}}
-        <li> <a href="{{reportHref}}">report</a> </li>
+        <li> <a href="{{reportHref}}">Report</a> </li>
       {{/if}}
       {{#if onReportPage}}
-        <li> <a href="{{sessionHref}}">estimate</a> </li>
+        <li> <a href="{{sessionHref}}">Resume Estimating</a> </li>
       {{/if}}
     </ul>
+    </div>
   </nav>
+  {{/if}}
 </template>

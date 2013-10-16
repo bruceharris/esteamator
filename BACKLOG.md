@@ -42,8 +42,6 @@
 
 ## editing username should not accept blank
 
-## improve menu styling
-
 ## bulk upload user stories
 
 <!--
