@@ -44,6 +44,8 @@
 
 ## bulk upload user stories
 
+## ensure only first click of "next item" is honored
+
 <!--
 
 # Completed items
