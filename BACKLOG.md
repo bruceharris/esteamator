@@ -36,8 +36,6 @@
 
 ## Router should validate session
 
-## use blur not change
-
 ## user story description should not accept blank
 
 ## editing username should not accept blank
