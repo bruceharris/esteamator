@@ -7,7 +7,9 @@ define('publish', ['collections'], function(collections) {
     Meteor.publish(collection, function(sessionId) {
 
       // ensure we only publish for a single specified session
-      check(sessionId, String);
+      if(sessionId !== null) {
+        check(sessionId, String);
+      }
 
       return collections[collection].find({ sessionId: sessionId });
     });
